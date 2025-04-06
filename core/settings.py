@@ -1,10 +1,11 @@
 from pathlib import Path
-
+import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-key'
 DEBUG = True
 ALLOWED_HOSTS = ["task-manager-final-2.onrender.com", "localhost", "127.0.0.1"]
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -58,6 +59,10 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
